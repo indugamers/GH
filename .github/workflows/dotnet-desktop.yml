@@ -46,7 +46,7 @@ jobs:
           echo "$env.PASSWORD"
 
       - name: Display credentials1
-        run: echo "$USER"
+        run: echo $USER
 
       - name: Display credentials2
-        run: echo "$env.PASSWORD"
+        run: echo $env.PASSWORD
