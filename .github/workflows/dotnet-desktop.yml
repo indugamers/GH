@@ -44,5 +44,5 @@ jobs:
           echo Environment selected : ${{github.event.inputs.env}}
           # echo ${{env.USER}} 
           # echo ${{env.PASSWORD}}
-          echo ${{vars.DEV_USERNAME}}
-          echo ${{vars.DEV_PASSWORD}}
+          Write-Host ${{vars.DEV_USERNAME}}
+          Write-Host ${{vars.DEV_PASSWORD}}
