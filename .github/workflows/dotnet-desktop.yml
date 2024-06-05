@@ -18,3 +18,19 @@ on:
         description: Deploy from branch
         options:
           - dev
+jobs:
+  Build:
+    runs-on: windows-latest
+    steps:
+      - name: Code Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup MSBUILD
+        uses: microsoft/setup-msbuild@v1.1
+
+      - name: setup NuGet
+        uses: nuget/setup-nuget@v1
+
+      - name: Restore NuGet packages
+        run: nuget restore ConsoleApp.sln
+      
