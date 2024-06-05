@@ -42,7 +42,11 @@ jobs:
       - name: Display credentials
         run: |
           echo Environment selected : ${{github.event.inputs.env}}
-          echo ${{ env.USER }}
-          echo '${{ env.USER }}'
-          echo ${{ env.PASSWORD }}
-          echo '${{ env.PASSWORD }}'
+          echo "$USER"
+          echo "$env.PASSWORD"
+
+      - name: Display credentials1
+        run: echo "$USER"
+
+      - name: Display credentials2
+        run: echo "$env.PASSWORD"
