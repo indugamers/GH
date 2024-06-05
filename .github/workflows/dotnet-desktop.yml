@@ -1,0 +1,20 @@
+name: Build & Deploy Dev
+
+on:
+  workflow_dispatch:
+    inputs:
+      env:
+        type: choice
+        required: true
+        default: dev
+        description: Deploy to env
+        options:
+          - dev
+
+      branch:
+        type: choice
+        required: true
+        default: develop
+        description: Deploy from branch
+        options:
+          - dev
