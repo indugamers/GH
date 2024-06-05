@@ -1,23 +1,7 @@
 name: Build & Deploy Dev
 
-on:
-  workflow_dispatch:
-    inputs:
-      env:
-        type: choice
-        required: true
-        default: dev
-        description: Deploy to env
-        options:
-          - dev
+on: workflow_dispatch
 
-      branch:
-        type: choice
-        required: true
-        default: develop
-        description: Deploy from branch
-        options:
-          - dev
 jobs:
   Build:
     runs-on: windows-latest
@@ -33,4 +17,3 @@ jobs:
 
       - name: Restore NuGet packages
         run: nuget restore ConsoleApp.sln
-      
