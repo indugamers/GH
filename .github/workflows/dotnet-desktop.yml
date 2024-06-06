@@ -45,6 +45,6 @@ jobs:
           echo Environment selected : ${{github.event.inputs.env}}
 
       - name: Build
-        run: msbuild ConsoleApp\ConsoleApp.sln /p:Configuration=Release /p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:publishUrl= ${{ github.workspace }}\ConsoleApp\ConsoleApp\bin\Release\net6.0\ /p:PrecompileBeforePublish=true /p:EnableUpdateable=false
+        run: msbuild ConsoleApp\ConsoleApp.sln /p:Configuration=Release /p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:publishUrl=${{ github.workspace }}\ConsoleApp\ConsoleApp\bin\Release\net6.0\ /p:PrecompileBeforePublish=true /p:EnableUpdateable=false
 
       # - name: Generate Build Artifacts
