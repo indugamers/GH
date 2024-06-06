@@ -50,7 +50,7 @@ jobs:
         run: msbuild ConsoleApp.sln /p:Configuration=Release /p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:publishUrl=${{ github.workspace }}\ConsoleApp\ConsoleApp\bin\Release\net6.0\ /p:PrecompileBeforePublish=true /p:EnableUpdateable=false
 
       - name: Generate Build Artifacts
-        uses: action/upload-artifact@v3.1.1
+        uses: actions/upload-artifact@v3.1.1
         with:
           name: "Publish-Artifacts"
           path: ${{github.workspace}}\ConsoleApp\bin\Release\net6.0
