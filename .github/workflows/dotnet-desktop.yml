@@ -21,10 +21,11 @@ on:
         default: develop
         description: Deploy from branch
         options:
-          - dev
+          - develop
 
 jobs:
   Build:
+    environment: dev
     runs-on: windows-latest
     steps:
       - name: Code Checkout
@@ -36,17 +37,12 @@ jobs:
       - name: setup NuGet
         uses: nuget/setup-nuget@v1
 
-      # - name: Restore NuGet packages
-      #   run: nuget restore ConsoleApp.sln
+      - name: Restore NuGet packages
+        run: nuget restore ConsoleApp.sln
 
       - name: Display credentials
         run: |
           echo Environment selected : ${{github.event.inputs.env}}
-          echo "$USER"
-          echo "$env.PASSWORD"
 
-      - name: Display credentials1
-        run: echo $USER
-
-      - name: Display credentials2
-        run: echo $env.PASSWORD
+      - name: Build
+        run: msbuild ConsoleApp.sln /p:Configuration=Release /p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:publishUrl= ${{ github.workspace }}\ConsoleApp\bin\Release\net6.0\ /p:PrecompileBeforePublish=true /p:EnableUpdateable=false
